@@ -15,6 +15,8 @@ const CONSTANTS = {
 	background_color: { r: 61, g: 0, b: 129 },
 };
 
+k.setLayers(["background", "game-objects", "ui"], "game-objects");
+
 registerMenuScene({ name: "menu", k, C: CONSTANTS });
 registerGameplayScene({ name: "play", k, C: CONSTANTS });
 registerGameoverScene({ name: "over", k, C: CONSTANTS });

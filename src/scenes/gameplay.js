@@ -14,6 +14,7 @@ export function registerGameplayScene({ name, k, C }) {
 			k.color(...Object.values(C.background_color)),
 			k.outline(4, { r: 255, g: 157, b: 24 }),
 			k.area(),
+			k.layer("bakground"),
 			"boundary",
 		]);
 

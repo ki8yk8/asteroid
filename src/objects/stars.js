@@ -10,6 +10,7 @@ export default function Star({ k, C, type, pos }) {
 		k.color(...COLOR[type]),
 		k.pos(...pos),
 		k.anchor("center"),
+		k.layer("background"),
 	]);
 
 	return star;
