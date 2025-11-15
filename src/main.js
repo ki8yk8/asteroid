@@ -7,8 +7,6 @@ const k = kaplay({ global: false, background: [255, 255, 255] });
 
 k.loadRoot("./");
 
-console.log(k);
-
 const CONSTANTS = {
 	padding: [50, 100],
 };
