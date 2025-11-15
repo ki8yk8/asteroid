@@ -71,6 +71,11 @@ export default function Rocket({ k, C }) {
 
 	rocket.onUpdate(() => {
 		health_decrease_msg.hidden = rocket_in_boundary;
+		
+		if (!rocket_in_boundary) {
+			const counter = k.get("health-counter")[0]
+			counter.data = counter.data - 10 * k.dt();
+		}
 	});
 
 	// collision with the asteroid
