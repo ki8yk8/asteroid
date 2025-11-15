@@ -1,4 +1,4 @@
-export default function UI({ k, C, values }) {
+export default function UI({ k, C }) {
 	const UI = k.add([k.layer("ui")]);
 
 	const score = UI.add([
@@ -10,7 +10,7 @@ export default function UI({ k, C, values }) {
 	]);
 
 	const score_number = UI.add([
-		k.text("10", {
+		k.text(k.game.score ?? 0, {
 			size: 24,
 		}),
 		k.pos(score.width + score.pos.x, score.pos.y),
@@ -26,6 +26,28 @@ export default function UI({ k, C, values }) {
 		k.anchor("topright"),
 		k.color(255, 255, 255),
 	]);
+
+	let previous = {
+		...k.game,
+	};
+	k.onUpdate(() => {
+		const game = k.game;
+		const dependency = ["score"];
+
+		console.log(game.score)
+
+		dependency.forEach((depend) => {
+			if (previous[depend] !== game[depend]) {
+				// update the previous one
+				previous = { ...game };
+
+				if (depend === "score") {
+					console.log(game.score)
+					score_number.text = game[depend];
+				}
+			}
+		});
+	});
 
 	return UI;
 }

@@ -21,6 +21,10 @@ export function registerGameplayScene({ name, k, C }) {
 
 		const ui = UI({ k, C });
 		const rocket = Rocket({ k, C });
+
+		k.loop(2, () => {
+			k.game.score++;
+		})
 		Asetroid({ k, C, size: "small" });
 
 		createStarBG({ k, C });
