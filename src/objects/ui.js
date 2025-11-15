@@ -1,3 +1,5 @@
+import { Counter } from "../components/counter";
+
 export default function UI({ k, C }) {
 	const UI = k.add([k.layer("ui")]);
 
@@ -27,6 +29,17 @@ export default function UI({ k, C }) {
 		k.color(255, 255, 255),
 	]);
 
+	const counter_pos = [k.width() - C.padding[1] / 2, C.padding[0] / 2];
+	const anchor = "topright";
+	const counter = Counter({
+		k,
+		C,
+		props: {
+			anchor,
+			pos: counter_pos,
+		},
+	});
+
 	let previous = {
 		...k.game,
 	};
@@ -40,7 +53,7 @@ export default function UI({ k, C }) {
 				previous = { ...game };
 
 				if (depend === "score") {
-					console.log(game.score)
+					console.log(game.score);
 					score_number.text = game[depend];
 				}
 			}
