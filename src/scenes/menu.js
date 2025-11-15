@@ -64,14 +64,21 @@ export function registerMenuScene({ name, k, C }) {
 		});
 
 		k.onKeyPress("enter", () => {
-			if (menu_items[selected_item] === "Sound: On") {
+			const selected = menu_items[selected_item];
+			if (selected === "Start Game") {
+				k.go("play");
+			} else if (selected === "Sound: On") {
 				const item = menu_objects[selected_item].get("text")[0];
 
 				if (item.text === "Sound: On") {
 					item.text = "Sound: Off";
+					k.setVolume(0);
 				} else {
 					item.text = "Sound: On";
+					k.setVolume(1);
 				}
+			} else if (selected === "Instructions") {
+				k.go("instructions");
 			}
 		});
 	});

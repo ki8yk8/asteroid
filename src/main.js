@@ -2,6 +2,7 @@ import kaplay from "kaplay";
 import { registerMenuScene } from "./scenes/menu";
 import { registerGameoverScene } from "./scenes/gameover";
 import { registerGameplayScene } from "./scenes/gameplay";
+import { registerInstructionScene } from "./scenes/instructions";
 
 const k = kaplay({ global: false, background: [61, 0, 129] });
 
@@ -35,6 +36,7 @@ k.game = {
 k.setLayers(["background", "game-objects", "ui"], "game-objects");
 
 registerMenuScene({ name: "menu", k, C: CONSTANTS });
+registerInstructionScene({ name: "instructions", k, C: CONSTANTS });
 registerGameplayScene({ name: "play", k, C: CONSTANTS });
 registerGameoverScene({ name: "over", k, C: CONSTANTS });
 
