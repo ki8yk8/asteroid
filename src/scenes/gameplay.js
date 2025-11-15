@@ -1,4 +1,4 @@
-import Asetroid from "../objects/asteroid";
+import Asetroid, { createAsteroidBG } from "../objects/asteroid";
 import Rocket from "../objects/rocket";
 import { createStarBG } from "../objects/stars";
 import UI from "../objects/ui";
@@ -25,5 +25,6 @@ export function registerGameplayScene({ name, k, C }) {
 		Asetroid({ k, C, size: "small" });
 
 		createStarBG({ k, C });
+		createAsteroidBG({ k, C });
 	});
 }
