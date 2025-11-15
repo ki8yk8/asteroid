@@ -12,8 +12,9 @@ export function registerGameplayScene({ name, k, C }) {
 			k.pos(k.width() / 2, k.height() / 2),
 			k.outline(4, k.color(255, 0, 0)),
 			k.area(),
+			"boundary",
 		]);
 
-		const rocket = Rocket({k ,C});
+		const rocket = Rocket({ k, C });
 	});
 }

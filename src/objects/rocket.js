@@ -3,6 +3,8 @@ function tweenRocketAngle(k, rocket, to) {
 }
 
 export default function Rocket({ k, C }) {
+	let { rocket_speed } = C;
+
 	const rocket = k.add([
 		k.rect(32, 64, {
 			radius: [16, 16, 0, 0],
@@ -16,20 +18,28 @@ export default function Rocket({ k, C }) {
 	]);
 
 	k.onKeyDown("up", () => {
-		rocket.move(0, -C.rocket_speed);
+		rocket.move(0, -rocket_speed);
 		tweenRocketAngle(k, rocket, 0);
 	});
 	k.onKeyDown("down", () => {
-		rocket.move(0, C.rocket_speed);
+		rocket.move(0, rocket_speed);
 		tweenRocketAngle(k, rocket, 180);
 	});
 	k.onKeyDown("left", () => {
-		rocket.move(-C.rocket_speed, 0);
+		rocket.move(-rocket_speed, 0);
 		tweenRocketAngle(k, rocket, -90);
 	});
 	k.onKeyDown("right", () => {
-		rocket.move(C.rocket_speed, 0);
+		rocket.move(rocket_speed, 0);
 		tweenRocketAngle(k, rocket, 90);
+	});
+
+	k.onKeyDown("s", () => {
+		rocket_speed = C.rocket_speed * 2	;
+
+		k.wait(0.15, () => {
+			rocket_speed = C.rocket_speed;
+		});
 	});
 
 	return rocket;
