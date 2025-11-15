@@ -27,15 +27,21 @@ export default function Asetroid({ k, C, size = "medium" }) {
 		k.pos(rnd_pos[0], rnd_pos[1]),
 		k.scale(s),
 		k.anchor("center"),
+		k.rotate(0),
+		k.animate({ relative: true }),
 		"asteroid",
 	]);
+
+	asteroid.animate("angle", [0, 360], {
+		duration: 6,
+	});
 
 	// getting the rocket position
 	const { x: r_x, y: r_y } = k.get("rocket")[0].pos;
 	const [a_x, a_y] = rnd_pos;
 	// unit vector towards the rocket
 	const d = Math.sqrt((a_x - r_x) ** 2 + (a_y - r_y) ** 2);
-	const [v_x, v_y] = [(r_x-a_x) / d, (r_y-a_y) / d];
+	const [v_x, v_y] = [(r_x - a_x) / d, (r_y - a_y) / d];
 
 	const scale = 70;
 	asteroid.onUpdate(() => {
