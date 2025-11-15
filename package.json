@@ -1,5 +1,5 @@
 {
-	"name": "game",
+	"name": "asteroids",
 	"type": "module",
 	"scripts": {
 		"build": "vite build",
