@@ -26,7 +26,7 @@ export function registerMenuScene({ name, k, C }) {
 		});
 
 		// add menu item below
-		const menu_items = ["Start Game", "Sound", "Instructions"];
+		const menu_items = ["Start Game", "Sound: On", "Instructions"];
 		const menu_objects = [];
 		let selected_item = 0;
 		menu_items.forEach((item, index) => {
@@ -47,6 +47,7 @@ export function registerMenuScene({ name, k, C }) {
 				k.text(item, { size: 32 }),
 				k.anchor("center"),
 				k.color(0, 0, 0),
+				"text",
 			]);
 
 			menu_objects.push(menu_item);
@@ -60,6 +61,18 @@ export function registerMenuScene({ name, k, C }) {
 		k.onKeyPress("down", () => {
 			selected_item = Math.min(2, selected_item + 1);
 			handleChangeMenu(menu_objects, selected_item);
+		});
+
+		k.onKeyPress("enter", () => {
+			if (menu_items[selected_item] === "Sound: On") {
+				const item = menu_objects[selected_item].get("text")[0];
+
+				if (item.text === "Sound: On") {
+					item.text = "Sound: Off";
+				} else {
+					item.text = "Sound: On";
+				}
+			}
 		});
 	});
 
