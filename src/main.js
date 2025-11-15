@@ -1,11 +1,14 @@
 import kaplay from "kaplay";
-// import "kaplay/global"; // uncomment if you want to use without the k. prefix
+import { registerMenuScene } from "./scenes/menu";
+import { registerGameoverScene } from "./scenes/gameover";
+import { registerGameplayScene } from "./scenes/gameplay";
 
 const k = kaplay();
 
-k.loadRoot("./"); // A good idea for Itch.io publishing later
-k.loadSprite("bean", "sprites/bean.png");
+k.loadRoot("./");
 
-k.add([k.pos(120, 80), k.sprite("bean")]);
+const CONSTANTS = {};
 
-k.onClick(() => k.addKaboom(k.mousePos()));
+registerMenuScene({ name: "menu", k, C: CONSTANTS });
+registerGameplayScene({ name: "play", k, C: CONSTANTS });
+registerGameoverScene({ name: "over", k, C: CONSTANTS });
