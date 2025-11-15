@@ -5,16 +5,36 @@ function tweenRocketAngle(k, rocket, to) {
 export default function Rocket({ k, C }) {
 	let { rocket_speed } = C;
 
+	let rocket_in_boundary = true;
+
 	const rocket = k.add([
 		k.rect(32, 64, {
 			radius: [16, 16, 0, 0],
 		}),
 		k.color(0, 0, 0),
-		k.area(),
-		k.pos(k.width() / 2, k.height() / 2),
 		k.rotate(0),
 		k.anchor("center"),
+		k.area(),
+		k.pos(k.width() / 2, k.height() / 2),
 		"rocket",
+	]);
+
+	const health_decrease_msg = k.add([
+		k.rect(200, 50, {
+			radius: 16,
+		}),
+		k.color(255, 0, 0),
+		k.pos(k.width() / 2, 100),
+		k.anchor("center"),
+	]);
+	health_decrease_msg.hidden = true;    // first hidden because the rocket is inside the boundary
+
+	health_decrease_msg.add([
+		k.text("Remain inside", {
+			size: 22,
+		}),
+		k.color(255, 255, 255),
+		k.anchor("center"),
 	]);
 
 	k.onKeyDown("up", () => {
@@ -35,11 +55,22 @@ export default function Rocket({ k, C }) {
 	});
 
 	k.onKeyDown("s", () => {
-		rocket_speed = C.rocket_speed * 2	;
+		rocket_speed = C.rocket_speed * 2;
 
 		k.wait(0.15, () => {
 			rocket_speed = C.rocket_speed;
 		});
+	});
+
+	rocket.onCollide("boundary", () => {
+		rocket_in_boundary = true;
+	});
+	rocket.onCollideEnd("boundary", () => {
+		rocket_in_boundary = false;
+	});
+
+	rocket.onUpdate(() => {
+		health_decrease_msg.hidden = rocket_in_boundary;
 	});
 
 	return rocket;
