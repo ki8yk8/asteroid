@@ -11,7 +11,7 @@ export default function Rocket({ k, C }) {
 		k.rect(32, 64, {
 			radius: [16, 16, 0, 0],
 		}),
-		k.color(0, 0, 0),
+		k.color(70, 255, 24),
 		k.rotate(0),
 		k.anchor("center"),
 		k.area(),
