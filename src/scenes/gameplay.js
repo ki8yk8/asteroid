@@ -22,9 +22,16 @@ export function registerGameplayScene({ name, k, C }) {
 		const ui = UI({ k, C });
 		const rocket = Rocket({ k, C });
 
-		Asetroid({ k, C, size: "small" });
-
 		createStarBG({ k, C });
 		createAsteroidBG({ k, C });
+
+		Asetroid({ k, C });
+
+		k.onUpdate(() => {
+			if (k.game.asteroids < k.game.asteroids_capacity) {
+				k.game.asteroids++;
+				k.wait(1, () => Asetroid({ k, C }));
+			}
+		});
 	});
 }

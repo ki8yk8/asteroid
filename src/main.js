@@ -26,6 +26,8 @@ const CONSTANTS = {
 
 k.game = {
 	score: 0,
+	asteroids_capacity: 2,
+	asteroids: 1,
 };
 
 k.setLayers(["background", "game-objects", "ui"], "game-objects");

@@ -48,6 +48,13 @@ export default function Asetroid({ k, C, size = "medium" }) {
 		asteroid.move(v_x * scale, v_y * scale);
 	});
 
+	k.onUpdate(() => {
+		if (asteroid.exists() && asteroid.isOffScreen()) {
+		k.destroy(asteroid);
+		k.game.asteroids--;
+		}
+	})
+
 	return asteroid;
 }
 
@@ -66,7 +73,7 @@ export function createAsteroidBG({ k, C }) {
 			k.sprite(k.choose(all_sprites), k.anchor("center")),
 			k.pos(x, y),
 			k.layer("background"),
-			k.scale(0.25)
+			k.scale(0.25),
 		]);
 	}
 }
