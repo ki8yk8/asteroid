@@ -4,6 +4,62 @@ import { createStarBG } from "../objects/stars";
 export function registerMenuScene({ name, k, C }) {
 	k.scene(name, () => {
 		createStarBG({ k, C, num: 200 });
-		createAsteroidBG({k, C, num: 30, scale: 0.6});
+		createAsteroidBG({ k, C, num: 30, scale: 0.6 });
+
+		const text = k.add([
+			k.text("Asteroids", {
+				size: 72,
+			}),
+			k.pos(k.width() / 2, 100),
+			k.anchor("center"),
+			k.scale(1),
+			k.rotate(0),
+			k.animate({ relative: true }),
+			k.layer("ui"),
+		]);
+
+		text.animate("angle", [0, 2.0, 0, -2.0, 0], {
+			duration: 2,
+		});
+		text.animate("scale", [1, 1.1, 1], {
+			duration: 1,
+		});
+
+		// add menu item below
+		const menu_items = ["Start Game", "Sound", "Instructions"];
+		const menu_objects = [];
+		let selected_item = 0;
+		menu_items.forEach((item, index) => {
+			const menu_item = k.add([
+				k.rect(400, 80, {
+					radius: 20,
+				}),
+				k.pos(
+					k.width() / 2,
+					text.pos.y + text.height / 2 + 40 + 100 + index * (80 + 20)
+				),
+				k.outline(4),
+				k.anchor("center"),
+				k.layer("ui"),
+			]);
+
+			menu_item.add([
+				k.text(item, { size: 32 }),
+				k.anchor("center"),
+				k.color(0, 0, 0),
+			]);
+
+			menu_objects.push(menu_item);
+		});
+
+		k.onKeyPress("up", () => {
+			selected_item = Math.max(0, selected_item - 1);
+		});
+		k.onKeyPress("down", () => {
+			selected_item = Math.min(2, selected_item + 1);
+
+			const active_item = menu_objects[selected_item];
+			k.tween(1, 1.1, 1, (s) => (active_item.scale = s));
+		});
 	});
 }
