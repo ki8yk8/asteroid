@@ -71,10 +71,12 @@ export default function Rocket({ k, C }) {
 
 	rocket.onUpdate(() => {
 		health_decrease_msg.hidden = rocket_in_boundary;
-		
+
 		if (!rocket_in_boundary) {
-			const counter = k.get("health-counter")[0]
-			counter.data = counter.data - 10 * k.dt();
+			const counter = k.get("health-counter")[0];
+			const new_health = k.game.health - 10 * k.dt();
+			k.game.health = new_health;
+			counter.data = new_health;
 		}
 	});
 

@@ -32,6 +32,10 @@ export function registerGameplayScene({ name, k, C }) {
 				k.game.asteroids++;
 				k.wait(0.25, () => Asetroid({ k, C }));
 			}
+
+			if (k.game.health <= 0) {
+				k.go("over", k.game.score);
+			}
 		});
 	});
 }
