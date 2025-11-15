@@ -1,6 +1,7 @@
 import Asetroid from "../objects/asteroid";
 import Rocket from "../objects/rocket";
 import { createStarBG } from "../objects/stars";
+import UI from "./ui";
 
 export function registerGameplayScene({ name, k, C }) {
 	k.scene(name, () => {
@@ -18,6 +19,7 @@ export function registerGameplayScene({ name, k, C }) {
 			"boundary",
 		]);
 
+		const ui = UI({ k, C });
 		const rocket = Rocket({ k, C });
 		Asetroid({ k, C, size: "small" });
 
