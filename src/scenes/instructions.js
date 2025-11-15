@@ -4,7 +4,7 @@ import { createStarBG } from "../objects/stars";
 export function registerInstructionScene({ k, name, C }) {
 	k.scene(name, () => {
 		createStarBG({ k, C, num: 100 });
-		createAsteroidBG({k, C, num: 4});
+		createAsteroidBG({ k, C, num: 4 });
 
 		const title = k.add([
 			k.text("Instructions", {
@@ -48,9 +48,9 @@ export function registerInstructionScene({ k, name, C }) {
 		hint.animate("scale", [1, 1.1, 0.9, 1], {
 			duration: 1,
 		});
-	});
 
-	k.onKeyPress("space", () => {
-		k.go("menu");
+		k.onKeyPress("space", () => {
+			k.go("menu");
+		});
 	});
 }
