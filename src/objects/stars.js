@@ -16,10 +16,8 @@ export default function Star({ k, C, type, pos }) {
 	return star;
 }
 
-export function createStarBG({ k, C }) {
-	const N = 100;
-
-	for (let i = 0; i < N; i++) {
+export function createStarBG({ k, C, num = 100 }) {
+	for (let i = 0; i < num; i++) {
 		Star({
 			k,
 			C,

@@ -38,4 +38,4 @@ registerMenuScene({ name: "menu", k, C: CONSTANTS });
 registerGameplayScene({ name: "play", k, C: CONSTANTS });
 registerGameoverScene({ name: "over", k, C: CONSTANTS });
 
-k.go("play");
+k.go("menu");

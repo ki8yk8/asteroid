@@ -65,13 +65,12 @@ export default function Asetroid({ k, C, size = "medium" }) {
 	return asteroid;
 }
 
-export function createAsteroidBG({ k, C }) {
-	const N = 10;
+export function createAsteroidBG({ k, C, num = 10, scale = 0.25 }) {
 	const all_sprites = Array(9)
 		.fill(null)
 		.map((_, index) => `asteroid-${index + 1}`);
 
-	for (let i = 0; i < N; i++) {
+	for (let i = 0; i < num; i++) {
 		const [x, y] = [
 			k.rand(C.padding[1], k.width() - C.padding[1]),
 			k.rand(C.padding[0], k.height() - C.padding[0]),
@@ -80,7 +79,7 @@ export function createAsteroidBG({ k, C }) {
 			k.sprite(k.choose(all_sprites), k.anchor("center")),
 			k.pos(x, y),
 			k.layer("background"),
-			k.scale(0.25),
+			k.scale(scale),
 		]);
 	}
 }
