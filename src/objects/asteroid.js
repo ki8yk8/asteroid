@@ -49,11 +49,17 @@ export default function Asetroid({ k, C, size = "medium" }) {
 	});
 
 	k.onUpdate(() => {
-		if (asteroid.exists() && asteroid.isOffScreen()) {
-		k.destroy(asteroid);
-		k.game.asteroids--;
+		if (asteroid.exists()) {
+			const offset = 50;
+			if (
+				(asteroid.pos.x < -offset || asteroid.pos.x > k.width() + offset) &&
+				(asteroid.pos.y < -offset || asteroid.pos.y > k.height() + offset)
+			) {
+				k.destroy(asteroid);
+				k.game.asteroids--;
+			}
 		}
-	})
+	});
 
 	return asteroid;
 }

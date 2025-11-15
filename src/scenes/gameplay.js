@@ -30,7 +30,7 @@ export function registerGameplayScene({ name, k, C }) {
 		k.onUpdate(() => {
 			if (k.game.asteroids < k.game.asteroids_capacity) {
 				k.game.asteroids++;
-				k.wait(1, () => Asetroid({ k, C }));
+				k.wait(0.25, () => Asetroid({ k, C }));
 			}
 		});
 	});
