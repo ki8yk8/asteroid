@@ -75,11 +75,17 @@ export function createAsteroidBG({ k, C, num = 10, scale = 0.25 }) {
 			k.rand(C.padding[1], k.width() - C.padding[1]),
 			k.rand(C.padding[0], k.height() - C.padding[0]),
 		];
-		k.add([
+		const mini_asteroid = k.add([
 			k.sprite(k.choose(all_sprites), k.anchor("center")),
 			k.pos(x, y),
 			k.layer("background"),
 			k.scale(scale),
+			k.rotate(0),
+			k.animate({ relative: true }),
 		]);
+
+		mini_asteroid.animate("angle", [0, 360], {
+			duration: k.rand(30, 180),
+		})
 	}
 }

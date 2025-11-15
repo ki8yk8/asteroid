@@ -11,6 +11,8 @@ export default function Star({ k, C, type, pos }) {
 		k.pos(...pos),
 		k.anchor("center"),
 		k.layer("background"),
+		k.scale(1),
+		k.animate({ relative: true }),
 	]);
 
 	return star;
@@ -18,11 +20,15 @@ export default function Star({ k, C, type, pos }) {
 
 export function createStarBG({ k, C, num = 100 }) {
 	for (let i = 0; i < num; i++) {
-		Star({
+		const star = Star({
 			k,
 			C,
 			type: k.choose(["light", "dark"]),
 			pos: [k.rand(0, k.width()), k.rand(0, k.height())],
+		});
+
+		star.animate("scale", [1, 0, 1], {
+			duration: k.rand(1, 4),
 		});
 	}
 }
