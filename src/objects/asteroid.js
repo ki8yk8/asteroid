@@ -28,6 +28,7 @@ export default function Asetroid({ k, C, size = "medium" }) {
 		k.scale(s),
 		k.anchor("center"),
 		k.rotate(0),
+		k.area(),
 		k.animate({ relative: true }),
 		"asteroid",
 	]);

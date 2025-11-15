@@ -28,6 +28,7 @@ export default function UI({ k, C }) {
 			anchor,
 			pos: counter_pos,
 			title: "Health",
+			name: "health-counter",
 			initial: 100,
 		},
 	});

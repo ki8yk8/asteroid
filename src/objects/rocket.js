@@ -27,7 +27,7 @@ export default function Rocket({ k, C }) {
 		k.pos(k.width() / 2, 100),
 		k.anchor("center"),
 	]);
-	health_decrease_msg.hidden = true;    // first hidden because the rocket is inside the boundary
+	health_decrease_msg.hidden = true; // first hidden because the rocket is inside the boundary
 
 	health_decrease_msg.add([
 		k.text("Remain inside", {
@@ -71,6 +71,28 @@ export default function Rocket({ k, C }) {
 
 	rocket.onUpdate(() => {
 		health_decrease_msg.hidden = rocket_in_boundary;
+	});
+
+	// collision with the asteroid
+	rocket.onCollide("asteroid", (asteroid) => {
+		const new_health = k.game.health - C.hit_decrease;
+
+		if (new_health <= 0) {
+			// if the rocket has no health left than destroy the rocket
+			k.destroy(rocket);
+			k.go("over", k.game.score);
+		} else {
+			// if the rocket still has health than, destroy asteroid
+			k.destroy(asteroid);
+			k.game.asteroids--;
+			k.game.health = new_health;
+
+			// update the health counter
+			const counter = k.get("health-counter")?.[0];
+			if (!counter) return;
+
+			counter.data = k.game.health;
+		}
 	});
 
 	return rocket;

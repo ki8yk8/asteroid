@@ -33,6 +33,7 @@ export function Counter({ k, C, props }) {
 		k.anchor(props.anchor ?? "center"),
 		k.color(255, 255, 255),
 		k.layer("ui"),
+		props.name,
 	]);
 	counter.data = previous;
 
