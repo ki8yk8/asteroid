@@ -1,7 +1,7 @@
 import Asetroid from "../objects/asteroid";
 import Rocket from "../objects/rocket";
 import { createStarBG } from "../objects/stars";
-import UI from "./ui";
+import UI from "../objects/ui";
 
 export function registerGameplayScene({ name, k, C }) {
 	k.scene(name, () => {
@@ -22,9 +22,6 @@ export function registerGameplayScene({ name, k, C }) {
 		const ui = UI({ k, C });
 		const rocket = Rocket({ k, C });
 
-		k.loop(2, () => {
-			k.game.score++;
-		})
 		Asetroid({ k, C, size: "small" });
 
 		createStarBG({ k, C });

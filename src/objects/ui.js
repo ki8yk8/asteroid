@@ -34,8 +34,6 @@ export default function UI({ k, C }) {
 		const game = k.game;
 		const dependency = ["score"];
 
-		console.log(game.score)
-
 		dependency.forEach((depend) => {
 			if (previous[depend] !== game[depend]) {
 				// update the previous one
