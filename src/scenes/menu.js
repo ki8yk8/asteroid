@@ -51,15 +51,25 @@ export function registerMenuScene({ name, k, C }) {
 
 			menu_objects.push(menu_item);
 		});
+		menu_objects[0].scale = 1.1;
 
 		k.onKeyPress("up", () => {
 			selected_item = Math.max(0, selected_item - 1);
+			handleChangeMenu(menu_objects, selected_item);
 		});
 		k.onKeyPress("down", () => {
 			selected_item = Math.min(2, selected_item + 1);
-
-			const active_item = menu_objects[selected_item];
-			k.tween(1, 1.1, 1, (s) => (active_item.scale = s));
+			handleChangeMenu(menu_objects, selected_item);
 		});
 	});
+
+	function handleChangeMenu(menu_objects, index) {
+		if (index !== 0 && menu_objects[index - 1].scale > 1) {
+			k.tween(1.1, 1, 0.25, (s) => (menu_objects[index - 1].scale = s));
+		}
+		k.tween(1, 1.1, 0.25, (s) => (menu_objects[index].scale = s));
+		if (index !== 2 && menu_objects[index + 1].scale > 1) {
+			k.tween(1.1, 1, 0.25, (s) => (menu_objects[index + 1].scale = s));
+		}
+	}
 }
