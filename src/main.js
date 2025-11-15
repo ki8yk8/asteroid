@@ -9,6 +9,7 @@ k.loadRoot("./");
 
 const CONSTANTS = {
 	padding: [50, 100],
+	rocket_speed: 100,
 };
 
 registerMenuScene({ name: "menu", k, C: CONSTANTS });
