@@ -3,6 +3,7 @@ import { registerMenuScene } from "./scenes/menu";
 import { registerGameoverScene } from "./scenes/gameover";
 import { registerGameplayScene } from "./scenes/gameplay";
 import { registerInstructionScene } from "./scenes/instructions";
+import { registerLoaderScene } from "./scenes/loader";
 
 const k = kaplay({ global: false, background: [61, 0, 129] });
 
@@ -59,6 +60,6 @@ registerMenuScene({ name: "menu", k, C: CONSTANTS });
 registerInstructionScene({ name: "instructions", k, C: CONSTANTS });
 registerGameplayScene({ name: "play", k, C: CONSTANTS });
 registerGameoverScene({ name: "over", k, C: CONSTANTS });
+registerLoaderScene({name: "loader", k, C:CONSTANTS});
 
-k.setVolume(0);
-k.go("play");
+k.go("loader");
