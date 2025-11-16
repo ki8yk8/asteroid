@@ -30,6 +30,19 @@ export default function Asetroid({ k, C, size = "medium" }) {
 		k.rotate(0),
 		k.area(),
 		k.animate({ relative: true }),
+		k.particles(
+			{
+				max: 80,
+				speed: [40, 90],
+				lifeTime: [2, 5],
+				opacities: [1.0, 0.0],
+				colors: [k.rgb(255, 214, 0), k.rgb(255, 95, 56)],
+			},
+			{
+				direction: 0,
+				spread: 360,
+			}
+		),
 		"asteroid",
 	]);
 
@@ -86,6 +99,6 @@ export function createAsteroidBG({ k, C, num = 10, scale = 0.25 }) {
 
 		mini_asteroid.animate("angle", [0, 360], {
 			duration: k.rand(30, 180),
-		})
+		});
 	}
 }
