@@ -7,6 +7,7 @@ function toRadian(degree) {
 
 export default function Rocket({ k, C }) {
 	let { rocket_speed } = C;
+	let rocket_boost = 1;
 
 	let rocket_in_boundary = true;
 
@@ -42,23 +43,25 @@ export default function Rocket({ k, C }) {
 
 	k.onKeyDown("up", () => {
 		const angle = toRadian(rocket.angle);
-		rocket.move(rocket_speed * Math.sin(angle), -rocket_speed * Math.cos(angle));
+		rocket.move(
+			rocket_speed * Math.sin(angle) * rocket_boost,
+			-rocket_speed * Math.cos(angle) * rocket_boost
+		);
 	});
 	k.onKeyDown("left", () => {
 		const angle = rocket.angle;
-		tweenRocketAngle(k, rocket, angle-40);
+		tweenRocketAngle(k, rocket, angle - 20 * rocket_boost);
 	});
 	k.onKeyDown("right", () => {
 		const angle = rocket.angle;
-		tweenRocketAngle(k, rocket, angle+40);
+		tweenRocketAngle(k, rocket, angle + 20 * rocket_boost);
 	});
 
 	k.onKeyDown("s", () => {
-		rocket_speed = C.rocket_speed * 2;
-
-		k.wait(0.15, () => {
-			rocket_speed = C.rocket_speed;
-		});
+		rocket_boost = 2;
+	});
+	k.onKeyRelease("s", () => {
+		rocket_boost = 1;
 	});
 
 	rocket.onCollide("boundary", () => {
