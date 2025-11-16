@@ -3,7 +3,12 @@
 ## Idea
 Player can move around the screen, not outside his boundary. If he does so, then his rocket cannot withstand the oustide condition. Watchout for the asteroids, if you get hit by them you gain some percentage of damage. 
 
-However, you can shoot the asteroids and gain some bonus material from those asteroids. Survive and earn bonus.
+Here, are basic features of gameplay;
+1. You use arrow up to propel forward,
+2. You use arrow left and right to change your direction or angle,
+3. No use of arrow down. Coz, I haven't seen a rocket in reverse gear.
+4. Use 's' for boost.
+5. Watch out for boosters and stars on screen. These are your points.
 
 # Attributions
 ## Sound
