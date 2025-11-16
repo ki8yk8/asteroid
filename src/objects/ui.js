@@ -57,7 +57,6 @@ export default function UI({ k, C }) {
 				previous = { ...game };
 
 				if (depend === "score") {
-					console.log(game.score);
 					score_number.text = game[depend];
 				}
 			}

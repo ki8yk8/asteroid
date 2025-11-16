@@ -9,8 +9,18 @@ export default function Points({ k, C }) {
 		k.pos(...random_pos),
 		k.anchor("center"),
 		k.area(),
+		k.scale(1),
+		k.rotate(0),
+		k.animate({ relative: true }),
 		"point",
 	]);
+
+	points.animate("scale", [1, 1.2, 1], {
+		duration: 1,
+	});
+	points.animate("angle", [0, 360], {
+		duration: 10,
+	});
 
 	points.onCollide("rocket", () => {
 		k.game.score += 1;
