@@ -23,12 +23,11 @@ export function registerGameplayScene({ name, k, C }) {
 
 		const ui = UI({ k, C });
 		const rocket = Rocket({ k, C });
-		Points({ k, C });
 
 		createStarBG({ k, C });
 		createAsteroidBG({ k, C });
 
-		Asetroid({ k, C });
+		k.loop(C.points_spawn, () => Points({ k, C }));
 
 		k.onUpdate(() => {
 			if (k.game.asteroids < k.game.asteroids_capacity) {

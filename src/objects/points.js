@@ -1,7 +1,7 @@
 export default function Points({ k, C }) {
 	const random_pos = [
-		k.rand(C.padding[1], k.width() - C.padding[1]),
-		k.rand(C.padding[0], k.height() - C.padding[0]),
+		k.rand(C.padding[1] * 2, k.width() - C.padding[1] * 2),
+		k.rand(C.padding[0] * 2, k.height() - C.padding[0] * 2),
 	];
 
 	const points = k.add([
@@ -14,7 +14,11 @@ export default function Points({ k, C }) {
 
 	points.onCollide("rocket", () => {
 		k.game.score += 1;
-		k.destroy(points);
+		points.exists() && k.destroy(points);
+	});
+
+	k.wait(C.points_stays, () => {
+		points.exists() && k.destroy(points);
 	});
 
 	return points;

@@ -32,6 +32,8 @@ const CONSTANTS = {
 	background_color: { r: 61, g: 0, b: 129 },
 	hit_decrease: 20,
 	boost_decrease: 20,    // percentage decrease per second
+	points_stays: 5,
+	points_spawn: 10,
 };
 
 k.game = {
