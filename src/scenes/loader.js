@@ -65,7 +65,7 @@ export function registerLoaderScene({ k, name, C }) {
 		let total_loaded = 0;
 
 		sprites.forEach(async (item) => {
-			const {name, path} = item;
+			const { name, path } = item;
 			await k.loadSprite(name, path);
 			handleItemLoaded();
 		});
@@ -75,11 +75,35 @@ export function registerLoaderScene({ k, name, C }) {
 			handleItemLoaded();
 		});
 
+		const bar = k.add([
+			k.rect(400, 50),
+			k.anchor("center"),
+			k.pos(k.width() / 2, k.height() / 2),
+			k.color(255, 255, 255),
+			k.layer("ui"),
+		]);
+
+		// range is from 0 to 390
+		const inner_bar = bar.add([
+			k.rect(1, 40),
+			k.anchor("left"),
+			k.pos(-bar.width / 2 + 5, 0),
+			k.color(0, 0, 0),
+		]);
+
 		function handleItemLoaded() {
 			total_loaded++;
 
+			inner_bar.width = k.map(
+				(total_loaded / (sounds.length + sprites.length)) * 100,
+				0,
+				100,
+				0,
+				390
+			);
+
 			if (total_loaded === sounds.length + sprites.length) {
-				k.wait(2, () => k.go("menu"));
+				k.wait(1, () => k.go("menu"));
 			}
 		}
 	});
