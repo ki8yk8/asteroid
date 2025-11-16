@@ -75,6 +75,27 @@ export function registerLoaderScene({ k, name, C }) {
 			handleItemLoaded();
 		});
 
+		let show_hint = false;
+		const hint = k.add([
+			k.text("Press space to continue"),
+			k.pos(k.width() / 2, k.height() - 100),
+			k.anchor("center"),
+			k.scale(1),
+			k.rotate(0),
+			k.animate({ relative: true }),
+			k.layer("ui"),
+		]);
+
+		hint.animate("angle", [0, 2, 0, -2, 0], {
+			duration: 3,
+		});
+		hint.animate("scale", [1, 1.1, 1], {
+			duration: 1.5,
+		});
+
+		// initially is hidden
+		hint.hidden = true;
+
 		const bar = k.add([
 			k.rect(400, 50),
 			k.anchor("center"),
@@ -103,8 +124,15 @@ export function registerLoaderScene({ k, name, C }) {
 			);
 
 			if (total_loaded === sounds.length + sprites.length) {
-				k.wait(1, () => k.go("menu"));
+				hint.hidden = false;
+				show_hint = true;
 			}
 		}
+
+		k.onKeyPress("space", () => {
+			if (show_hint) {
+				k.go("menu");
+			}
+		});
 	});
 }
