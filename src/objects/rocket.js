@@ -81,7 +81,7 @@ export default function Rocket({ k, C }) {
 	});
 
 	// collision with the asteroid
-	rocket.onCollide("asteroid", (asteroid) => {
+	rocket.onCollide("asteroid", async (asteroid) => {
 		const new_health = k.game.health - C.hit_decrease;
 
 		if (new_health <= 0) {
@@ -91,7 +91,11 @@ export default function Rocket({ k, C }) {
 			k.go("over", k.game.score);
 		} else {
 			// if the rocket still has health than, destroy asteroid
-			asteroid.emit(80)
+			asteroid.active = false;
+			asteroid.emit(80);
+			await k.tween(asteroid.scale, k.vec2(0, 0), 1, (s) => {
+				asteroid.scaleTo(s);
+			});
 			k.wait(2, () => k.destroy(asteroid));
 			k.play("earth");
 			k.game.asteroids--;

@@ -45,6 +45,7 @@ export default function Asetroid({ k, C, size = "medium" }) {
 		),
 		"asteroid",
 	]);
+	asteroid.active = true;
 
 	asteroid.animate("angle", [0, 360], {
 		duration: 6,
@@ -59,7 +60,9 @@ export default function Asetroid({ k, C, size = "medium" }) {
 
 	const scale = 70;
 	asteroid.onUpdate(() => {
-		asteroid.move(v_x * scale, v_y * scale);
+		if (asteroid.active) {
+			asteroid.move(v_x * scale, v_y * scale);
+		}
 	});
 
 	k.onUpdate(() => {
