@@ -31,15 +31,17 @@ const CONSTANTS = {
 	rocket_speed: 100,
 	background_color: { r: 61, g: 0, b: 129 },
 	hit_decrease: 20,
-	boost_decrease: 20,    // percentage decrease per second
+	boost_decrease: 20, // percentage decrease per second
 	points_stays: 5,
 	points_spawn: 10,
+	asteroid_increase: 1,
+	level_up_time: 15,
 };
 
 k.game = {
 	score: 0,
-	asteroids_capacity: 2,
-	asteroids: 1,
+	asteroids_capacity: 0,
+	asteroids: 0,
 	health: 100,
 	boost: 100,
 };

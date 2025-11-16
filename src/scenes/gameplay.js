@@ -29,6 +29,10 @@ export function registerGameplayScene({ name, k, C }) {
 
 		k.loop(C.points_spawn, () => Points({ k, C }));
 
+		k.loop(C.level_up_time, () => {
+			k.game.asteroids_capacity += C.asteroid_increase;
+		});
+
 		k.onUpdate(() => {
 			if (k.game.asteroids < k.game.asteroids_capacity) {
 				k.game.asteroids++;
