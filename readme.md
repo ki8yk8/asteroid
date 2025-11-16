@@ -14,6 +14,9 @@ Here, are basic features of gameplay;
 ## Game Engine Used
 1. Kaplay.js
 
+## Demo Video
+https://github.com/user-attachments/assets/c8bd2a0c-ecbb-456e-8cb4-bdcbb4ca690a
+
 # Attributions
 ## Asteroid Sprites from 
 1. <a href="https://www.freepik.com/free-vector/set-colorful-asteroids-different-shapes-textures-size_18734029.htm#fromView=search&page=1&position=0&uuid=c61b2c35-e994-4f63-8ed1-91fdbe67bdc9&query=Asteroid+illustration">Image by pch.vector on Freepik</a>
