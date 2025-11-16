@@ -83,7 +83,18 @@ export default function Rocket({ k, C }) {
 	});
 
 	k.onKeyDown("s", () => {
-		rocket_boost = 2;
+		if (k.game.boost > 0) {
+			rocket_boost = 2;
+
+			const counter = k.get("boost-counter")[0];
+			const new_boost = Math.max(0, k.game.boost - C.boost_decrease * k.dt());
+			k.game.boost = new_boost;
+			counter.data = new_boost;
+
+			if (new_boost === 0) {
+				rocket_boost = 1;
+			}
+		}
 	});
 	k.onKeyRelease("s", () => {
 		rocket_boost = 1;

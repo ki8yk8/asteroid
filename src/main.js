@@ -30,6 +30,7 @@ const CONSTANTS = {
 	rocket_speed: 100,
 	background_color: { r: 61, g: 0, b: 129 },
 	hit_decrease: 20,
+	boost_decrease: 20,    // percentage decrease per second
 };
 
 k.game = {
@@ -37,6 +38,7 @@ k.game = {
 	asteroids_capacity: 2,
 	asteroids: 1,
 	health: 100,
+	boost: 100,
 };
 
 k.setLayers(["background", "game-objects", "ui"], "game-objects");
