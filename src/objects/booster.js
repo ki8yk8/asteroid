@@ -8,8 +8,14 @@ export default function Booster({ k, C }) {
 		k.anchor("center"),
 		k.pos(random_pos[0], random_pos[1]),
 		k.area(),
+		k.scale(1),
+		k.animate({ relative: true }),
 		"booster",
 	]);
+
+	booster.animate("scale", [1, 1.5, 1], {
+		duration: 3,
+	});
 
 	booster.onCollide("rocket", () => {
 		k.game.boost = 100;

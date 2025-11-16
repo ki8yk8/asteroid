@@ -36,7 +36,7 @@ const CONSTANTS = {
 	points_stays: 5,
 	points_spawn: 10,
 	booster_spawn: 20,
-	booster_stays: 5,
+	booster_stays: 6,
 	asteroid_increase: 1,
 	level_up_time: 15,
 };
