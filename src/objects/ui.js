@@ -21,7 +21,7 @@ export default function UI({ k, C }) {
 
 	const counter_pos = [k.width() - C.padding[1] / 2, C.padding[0] / 2];
 	const anchor = "topright";
-	const counter = Counter({
+	const health_counter = Counter({
 		k,
 		C,
 		props: {
@@ -29,6 +29,17 @@ export default function UI({ k, C }) {
 			pos: counter_pos,
 			title: "Health",
 			name: "health-counter",
+			initial: 100,
+		},
+	});
+	const boost_counter = Counter({
+		k,
+		C,
+		props: {
+			anchor: "topright",
+			pos: [C.padding[1] / 2 + 200, k.height() - C.padding[0] - 50],
+			title: "Boost",
+			name: "boost-counter",
 			initial: 100,
 		},
 	});
