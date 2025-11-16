@@ -20,6 +20,7 @@ k.loadSprite("asteroid-8", "/sprites/asteroids/8.png");
 k.loadSprite("asteroid-9", "/sprites/asteroids/10.png");
 k.loadSprite("star", "/sprites/star.png");
 k.loadSprite("booster", "/sprites/booster.png");
+k.loadSprite("life", "/sprites/life.png");
 
 k.loadSound("blast", "/sounds/blast.mp3");
 k.loadSound("click", "/sounds/click.mp3");
@@ -37,6 +38,8 @@ const CONSTANTS = {
 	points_spawn: 10,
 	booster_spawn: 20,
 	booster_stays: 6,
+	life_spawn: 10,
+	life_stays: 7,
 	asteroid_increase: 1,
 	level_up_time: 15,
 };
