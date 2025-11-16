@@ -1,13 +1,7 @@
+import { toRadian, rotateVec } from "../helpers/transform";
+
 function tweenRocketAngle(k, rocket, to) {
 	k.tween(rocket.angle, to, 0.15, (angle) => (rocket.angle = angle));
-}
-function toRadian(degree) {
-	return (Math.PI / 180) * degree;
-}
-
-function rotateVec(x, y, angle) {
-	const [cos, sin] = [Math.cos(angle), Math.sin(angle)];
-	return [x * cos - y * sin, x * sin + y * cos];
 }
 
 export default function Rocket({ k, C }) {

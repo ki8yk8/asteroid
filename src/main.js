@@ -31,6 +31,7 @@ k.loadSound("space", "/sounds/space.mp3");
 const CONSTANTS = {
 	padding: [50, 100],
 	rocket_speed: 100,
+	bullet_speed: 200,
 	background_color: { r: 61, g: 0, b: 129 },
 	hit_decrease: 20,
 	boost_decrease: 20, // percentage decrease per second

@@ -1,5 +1,6 @@
 import Asetroid, { createAsteroidBG } from "../objects/asteroid";
 import Booster from "../objects/booster";
+import Bullet from "../objects/bullet";
 import Life from "../objects/life";
 import Points from "../objects/points";
 import Rocket from "../objects/rocket";
@@ -25,6 +26,9 @@ export function registerGameplayScene({ name, k, C }) {
 
 		const ui = UI({ k, C });
 		const rocket = Rocket({ k, C });
+		k.onKeyPress("space", () => {
+			Bullet({ k, C });
+		});
 
 		createStarBG({ k, C });
 		createAsteroidBG({ k, C });
