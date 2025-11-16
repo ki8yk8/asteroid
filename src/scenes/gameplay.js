@@ -27,7 +27,12 @@ export function registerGameplayScene({ name, k, C }) {
 		const ui = UI({ k, C });
 		const rocket = Rocket({ k, C });
 		k.onKeyPress("space", () => {
-			Bullet({ k, C });
+			if (k.game.bullets > 0) {
+				Bullet({ k, C });
+				k.game.bullets--;
+			} else {
+				k.play("empty");
+			}
 		});
 
 		createStarBG({ k, C });

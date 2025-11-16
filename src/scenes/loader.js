@@ -58,9 +58,13 @@ export function registerLoaderScene({ k, name, C }) {
 				name: "life",
 				path: "sprites/life.png",
 			},
+			{
+				name: "gun",
+				path: "sprites/gun.png",
+			},
 		];
 
-		const sounds = ["blast", "click", "earth", "laser", "space"];
+		const sounds = ["blast", "empty", "click", "earth", "laser", "space"];
 
 		let total_loaded = 0;
 

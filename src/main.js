@@ -24,6 +24,7 @@ const CONSTANTS = {
 	life_stays: 7,
 	asteroid_increase: 1,
 	level_up_time: 15,
+	max_bullets: 50,
 };
 
 k.game = {
@@ -32,6 +33,7 @@ k.game = {
 	asteroids: 0,
 	health: 100,
 	boost: 50,
+	bullets: 10,
 };
 
 k.setLayers(["background", "game-objects", "ui"], "game-objects");

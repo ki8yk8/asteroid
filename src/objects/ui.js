@@ -19,6 +19,12 @@ export default function UI({ k, C }) {
 		k.color(255, 255, 255),
 	]);
 
+	const bullet_title = UI.add([
+		k.text(`Bullets: ${k.game.bullets ?? 0}/${C.max_bullets}`, { size: 24 }),
+		k.pos(score.pos.x, score.pos.y + 30),
+		k.color(255, 255, 255),
+	]);
+
 	const counter_pos = [k.width() - C.padding[1] / 2, C.padding[0] / 2];
 	const anchor = "topright";
 	const health_counter = Counter({
@@ -49,7 +55,7 @@ export default function UI({ k, C }) {
 	};
 	k.onUpdate(() => {
 		const game = k.game;
-		const dependency = ["score"];
+		const dependency = ["score", "bullets"];
 
 		dependency.forEach((depend) => {
 			if (previous[depend] !== game[depend]) {
@@ -58,6 +64,8 @@ export default function UI({ k, C }) {
 
 				if (depend === "score") {
 					score_number.text = game[depend];
+				} else if (depend === "bullets") {
+					bullet_title.text = `Bullets: ${k.game.bullets}/${C.max_bullets}`;
 				}
 			}
 		});
