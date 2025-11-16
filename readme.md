@@ -9,8 +9,15 @@ Here, are basic features of gameplay;
 3. No use of arrow down. Coz, I haven't seen a rocket in reverse gear.
 4. Use 's' for boost.
 5. Watch out for boosters and stars on screen. These are your points.
+6. Shoot down the asteroid with space key.
+
+## Game Engine Used
+1. Kaplay.js
 
 # Attributions
+## Asteroid Sprites from 
+1. <a href="https://www.freepik.com/free-vector/set-colorful-asteroids-different-shapes-textures-size_18734029.htm#fromView=search&page=1&position=0&uuid=c61b2c35-e994-4f63-8ed1-91fdbe67bdc9&query=Asteroid+illustration">Image by pch.vector on Freepik</a>
+
 ## Sound
 1. <a href="https://pixabay.com/users/alban_gogh-28413822/?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=309133">Alban_Gogh</a> from <a href="https://pixabay.com/sound-effects//?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=309133">Pixabay</a>
 2. <a href="https://pixabay.com/users/soundreality-31074404/?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=411629">Jurij</a> from <a href="https://pixabay.com//?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=411629">Pixabay</a>

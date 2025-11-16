@@ -24,7 +24,7 @@ export default function Life({ k, C }) {
 		counter.data = k.game.health;
 	});
 
-	k.wait(C.life_spawn, () => {
+	k.wait(C.life_stays, () => {
 		life.exists() && k.destroy(life);
 	})
 

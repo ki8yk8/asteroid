@@ -18,7 +18,7 @@ export function registerInstructionScene({ k, name, C }) {
 
 		const paragraph = k.add([
 			k.text(
-				"You are green rocket. And your goal is to protect against asteroids. You have your boundary and if you leave that your health decreases. \n\nYou can increase your speed by pressing 's'. Watch out for the stars and boosters spawning randomly on screen, catch them before they are gone.",
+				"You are green rocket. And your goal is to protect against asteroids. You have your boundary and if you leave that your health decreases. \n\nYou can increase your speed by pressing 's'. You can shoot asteroids using space. Watch out for the stars and boosters spawning randomly on screen, catch them before they are gone.",
 				{
 					size: 22,
 					width: 400,

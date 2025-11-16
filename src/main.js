@@ -11,21 +11,29 @@ k.loadRoot("./");
 
 const CONSTANTS = {
 	padding: [50, 100],
+	background_color: { r: 61, g: 0, b: 129 },
+
 	rocket_speed: 100,
 	bullet_speed: 200,
-	background_color: { r: 61, g: 0, b: 129 },
+	
 	hit_decrease: 20,
 	boost_decrease: 20, // percentage decrease per second
+	
 	points_stays: 5,
 	points_spawn: 10,
+	
 	booster_spawn: 20,
 	booster_stays: 6,
+	
 	life_spawn: 10,
 	life_stays: 7,
-	bullet_satys: 5,
+	
+	bullet_stays: 5,
 	bullet_spawn: 7,
+	
 	asteroid_increase: 1,
-	level_up_time: 15,
+	level_up_time: 10,
+	
 	max_bullets: 50,
 	bullet_gain: 20,
 };
