@@ -2,7 +2,8 @@ import { createStarBG } from "../objects/stars";
 
 export function registerGameoverScene({ name, k, C }) {
 	k.scene(name, (score) => {
-		createStarBG({k, C, num: 100});
+		k.play("space", { loop: true });
+		createStarBG({ k, C, num: 100 });
 
 		const title = k.add([
 			k.text("Game over", {

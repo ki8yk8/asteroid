@@ -3,6 +3,8 @@ import { createStarBG } from "../objects/stars";
 
 export function registerMenuScene({ name, k, C }) {
 	k.scene(name, () => {
+		k.play("space", { loop: true });
+
 		createStarBG({ k, C, num: 200 });
 		createAsteroidBG({ k, C, num: 30, scale: 0.6 });
 
@@ -84,6 +86,7 @@ export function registerMenuScene({ name, k, C }) {
 	});
 
 	function handleChangeMenu(menu_objects, index) {
+		k.play("click");
 		if (index !== 0 && menu_objects[index - 1].scale > 1) {
 			k.tween(1.1, 1, 0.25, (s) => (menu_objects[index - 1].scale = s));
 		}

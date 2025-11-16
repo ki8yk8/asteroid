@@ -5,6 +5,7 @@ import UI from "../objects/ui";
 
 export function registerGameplayScene({ name, k, C }) {
 	k.scene(name, () => {
+		k.play("space", { loop: true });
 		const boundary = k.add([
 			k.rect(k.width() - C.padding[1], k.height() - C.padding[0], {
 				radius:

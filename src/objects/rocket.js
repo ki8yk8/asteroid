@@ -87,10 +87,12 @@ export default function Rocket({ k, C }) {
 		if (new_health <= 0) {
 			// if the rocket has no health left than destroy the rocket
 			k.destroy(rocket);
+			k.play("blast")
 			k.go("over", k.game.score);
 		} else {
 			// if the rocket still has health than, destroy asteroid
 			k.destroy(asteroid);
+			k.play("earth");
 			k.game.asteroids--;
 			k.game.health = new_health;
 

@@ -3,6 +3,7 @@ import { createStarBG } from "../objects/stars";
 
 export function registerInstructionScene({ k, name, C }) {
 	k.scene(name, () => {
+		k.play("space", { loop: true });
 		createStarBG({ k, C, num: 100 });
 		createAsteroidBG({ k, C, num: 4 });
 

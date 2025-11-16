@@ -19,6 +19,12 @@ k.loadSprite("asteroid-7", "/sprites/asteroids/7.png");
 k.loadSprite("asteroid-8", "/sprites/asteroids/8.png");
 k.loadSprite("asteroid-9", "/sprites/asteroids/10.png");
 
+k.loadSound("blast", "/sounds/blast.mp3");
+k.loadSound("click", "/sounds/click.mp3");
+k.loadSound("earth", "/sounds/earth.mp3");
+k.loadSound("laser", "/sounds/laser.mp3");
+k.loadSound("space", "/sounds/space.mp3");
+
 const CONSTANTS = {
 	padding: [50, 100],
 	rocket_speed: 100,
