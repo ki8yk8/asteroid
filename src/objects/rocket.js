@@ -5,6 +5,14 @@ function toRadian(degree) {
 	return (Math.PI / 180) * degree;
 }
 
+function rotateVec(x, y, angle) {
+	const [cos, sin] = [Math.cos(angle), Math.sin(angle)];
+	return [
+		x * cos - y * sin,
+		x * sin + y * cos,
+	];
+}
+
 export default function Rocket({ k, C }) {
 	let { rocket_speed } = C;
 	let rocket_boost = 1;
@@ -42,22 +50,27 @@ export default function Rocket({ k, C }) {
 	]);
 
 	k.onKeyDown("up", () => {
+		// distance between the center and the fuel position
+		const angle = toRadian(rocket.angle);
+
 		const emitter = k.add([
-			k.pos(rocket.pos.add(k.vec2(0, rocket.height/2))),
-			k.particles({
-				max: 10,
-				speed: [50, 120],
-				lifeTime: [0.2, 0.8],
-				opacities: [1, 0],
-				colors: [k.rgb(255, 214, 0), k.rgb(255, 95, 56)],
-			}, {
-				direction: 90,
-				spread: 60,
-			}),
+			k.pos(rocket.pos.add(rotateVec(0, rocket.height / 2, angle))),
+			k.particles(
+				{
+					max: 10,
+					speed: [50, 120],
+					lifeTime: [0.2, 0.8],
+					opacities: [1, 0],
+					colors: [k.rgb(255, 214, 0), k.rgb(255, 95, 56)],
+				},
+				{
+					direction: 90,
+					spread: 60,
+				}
+			),
 		]);
 
 		emitter.emit(10);
-		const angle = toRadian(rocket.angle);
 		rocket.move(
 			rocket_speed * Math.sin(angle) * rocket_boost,
 			-rocket_speed * Math.cos(angle) * rocket_boost
