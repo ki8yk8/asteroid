@@ -1,5 +1,8 @@
 function tweenRocketAngle(k, rocket, to) {
-	k.tween(rocket.angle, to, 0.5, (angle) => (rocket.angle = angle));
+	k.tween(rocket.angle, to, 0.15, (angle) => (rocket.angle = angle));
+}
+function toRadian(degree) {
+	return (Math.PI / 180) * degree;
 }
 
 export default function Rocket({ k, C }) {
@@ -38,20 +41,16 @@ export default function Rocket({ k, C }) {
 	]);
 
 	k.onKeyDown("up", () => {
-		rocket.move(0, -rocket_speed);
-		tweenRocketAngle(k, rocket, 0);
-	});
-	k.onKeyDown("down", () => {
-		rocket.move(0, rocket_speed);
-		tweenRocketAngle(k, rocket, 180);
+		const angle = toRadian(rocket.angle);
+		rocket.move(rocket_speed * Math.sin(angle), -rocket_speed * Math.cos(angle));
 	});
 	k.onKeyDown("left", () => {
-		rocket.move(-rocket_speed, 0);
-		tweenRocketAngle(k, rocket, -90);
+		const angle = rocket.angle;
+		tweenRocketAngle(k, rocket, angle-40);
 	});
 	k.onKeyDown("right", () => {
-		rocket.move(rocket_speed, 0);
-		tweenRocketAngle(k, rocket, 90);
+		const angle = rocket.angle;
+		tweenRocketAngle(k, rocket, angle+40);
 	});
 
 	k.onKeyDown("s", () => {
