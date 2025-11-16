@@ -22,9 +22,12 @@ const CONSTANTS = {
 	booster_stays: 6,
 	life_spawn: 10,
 	life_stays: 7,
+	bullet_satys: 5,
+	bullet_spawn: 7,
 	asteroid_increase: 1,
 	level_up_time: 15,
 	max_bullets: 50,
+	bullet_gain: 20,
 };
 
 k.game = {

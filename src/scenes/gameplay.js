@@ -1,6 +1,7 @@
 import Asetroid, { createAsteroidBG } from "../objects/asteroid";
 import Booster from "../objects/booster";
 import Bullet from "../objects/bullet";
+import Bullets from "../objects/bullets";
 import Life from "../objects/life";
 import Points from "../objects/points";
 import Rocket from "../objects/rocket";
@@ -40,6 +41,7 @@ export function registerGameplayScene({ name, k, C }) {
 
 		k.loop(C.points_spawn, () => Points({ k, C }));
 		k.loop(C.life_spawn, () => Life({ k, C }));
+		k.loop(C.bullet_spawn, () => Bullets({ k, C }));
 
 		k.loop(C.level_up_time, () => {
 			k.game.asteroids_capacity += C.asteroid_increase;
