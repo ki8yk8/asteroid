@@ -42,6 +42,21 @@ export default function Rocket({ k, C }) {
 	]);
 
 	k.onKeyDown("up", () => {
+		const emitter = k.add([
+			k.pos(rocket.pos.add(k.vec2(0, rocket.height/2))),
+			k.particles({
+				max: 10,
+				speed: [50, 120],
+				lifeTime: [0.2, 0.8],
+				opacities: [1, 0],
+				colors: [k.rgb(255, 214, 0), k.rgb(255, 95, 56)],
+			}, {
+				direction: 90,
+				spread: 60,
+			}),
+		]);
+
+		emitter.emit(10);
 		const angle = toRadian(rocket.angle);
 		rocket.move(
 			rocket_speed * Math.sin(angle) * rocket_boost,
