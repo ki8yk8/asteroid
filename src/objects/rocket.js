@@ -92,12 +92,30 @@ export default function Rocket({ k, C }) {
 		} else {
 			// if the rocket still has health than, destroy asteroid
 			asteroid.active = false;
-			asteroid.emit(80);
-			await k.tween(asteroid.scale, k.vec2(0, 0), 1, (s) => {
+			k.play("earth");
+
+			const emitter = k.add([
+				k.pos(asteroid.pos),
+				k.particles(
+					{
+						max: 80,
+						speed: [40, 90],
+						lifeTime: [1, 1.2],
+						opacities: [1.0, 0.0],
+						colors: [k.rgb(255, 214, 0), k.rgb(255, 95, 56)],
+					},
+					{
+						direction: 0,
+						spread: 360,
+					}
+				),
+			]);
+			emitter.emit(80);
+
+			await k.tween(asteroid.scale, k.vec2(0, 0), 0.8, (s) => {
 				asteroid.scaleTo(s);
 			});
-			k.wait(2, () => k.destroy(asteroid));
-			k.play("earth");
+			k.destroy(asteroid);
 			k.game.asteroids--;
 			k.game.health = new_health;
 
