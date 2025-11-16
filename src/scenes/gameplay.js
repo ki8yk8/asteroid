@@ -1,4 +1,5 @@
 import Asetroid, { createAsteroidBG } from "../objects/asteroid";
+import Points from "../objects/points";
 import Rocket from "../objects/rocket";
 import { createStarBG } from "../objects/stars";
 import UI from "../objects/ui";
@@ -22,6 +23,7 @@ export function registerGameplayScene({ name, k, C }) {
 
 		const ui = UI({ k, C });
 		const rocket = Rocket({ k, C });
+		Points({ k, C });
 
 		createStarBG({ k, C });
 		createAsteroidBG({ k, C });

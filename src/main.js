@@ -18,6 +18,7 @@ k.loadSprite("asteroid-6", "/sprites/asteroids/6.png");
 k.loadSprite("asteroid-7", "/sprites/asteroids/7.png");
 k.loadSprite("asteroid-8", "/sprites/asteroids/8.png");
 k.loadSprite("asteroid-9", "/sprites/asteroids/10.png");
+k.loadSprite("star", "/sprites/star.png");
 
 k.loadSound("blast", "/sounds/blast.mp3");
 k.loadSound("click", "/sounds/click.mp3");
