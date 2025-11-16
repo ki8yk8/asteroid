@@ -18,8 +18,14 @@ export default function Bullet({ k, C }) {
 	k.play("laser");
 
 	bullet.onUpdate(() => {
-		bullet.move(rotateVec(0, -C.bullet_speed, angle));
+		bullet.exists() && bullet.move(rotateVec(0, -C.bullet_speed, angle));
 	});
+
+	bullet.onCollide("asteroid", (asteroid) => {
+		k.game.score += 2;
+		k.destroy(bullet);
+		k.destroy(asteroid);
+	})
 
 	return bullet;
 }
