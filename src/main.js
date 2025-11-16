@@ -19,6 +19,7 @@ k.loadSprite("asteroid-7", "/sprites/asteroids/7.png");
 k.loadSprite("asteroid-8", "/sprites/asteroids/8.png");
 k.loadSprite("asteroid-9", "/sprites/asteroids/10.png");
 k.loadSprite("star", "/sprites/star.png");
+k.loadSprite("booster", "/sprites/booster.png");
 
 k.loadSound("blast", "/sounds/blast.mp3");
 k.loadSound("click", "/sounds/click.mp3");
@@ -34,6 +35,8 @@ const CONSTANTS = {
 	boost_decrease: 20, // percentage decrease per second
 	points_stays: 5,
 	points_spawn: 10,
+	booster_spawn: 20,
+	booster_stays: 5,
 	asteroid_increase: 1,
 	level_up_time: 15,
 };
@@ -43,7 +46,7 @@ k.game = {
 	asteroids_capacity: 0,
 	asteroids: 0,
 	health: 100,
-	boost: 100,
+	boost: 50,
 };
 
 k.setLayers(["background", "game-objects", "ui"], "game-objects");
